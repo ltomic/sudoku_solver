@@ -58,28 +58,28 @@ class Program(Frame):
 		self.image_selected_numbers = []
 		self.image_wrong_numbers = []
 	
-		self.image_blank = PhotoImage(file = 'res/blank.png')
-		self.image_selected_blank = PhotoImage(file = 'res/selected_blank.png')
-		self.image_wrong_blank = PhotoImage(file='res/wrong_blank.png')
+		self.image_blank = PhotoImage(file = 'gui/res/blank.png')
+		self.image_selected_blank = PhotoImage(file = 'gui/res/selected_blank.png')
+		self.image_wrong_blank = PhotoImage(file='gui/res/wrong_blank.png')
 
 		self.image_numbers.append(self.image_blank)
 		for i in range(9):
 			self.image_numbers.append(
-					PhotoImage(file='res/number{}.png'.format(i+1)))
+					PhotoImage(file='gui/res/number{}.png'.format(i+1)))
 
 		for i in range(9):
 			self.image_locked_numbers.append(
-					PhotoImage(file='res/locked_number{}.png'.format(i+1)))
+					PhotoImage(file='gui/res/locked_number{}.png'.format(i+1)))
 	
 		self.image_selected_numbers.append(self.image_selected_blank)	
 		for i in range(9):
 			self.image_selected_numbers.append(
-					PhotoImage(file='res/selected_number{}.png'.format(i+1)))
+					PhotoImage(file='gui/res/selected_number{}.png'.format(i+1)))
 
 		self.image_wrong_numbers.append(self.image_wrong_blank)
 		for i in range(9):
 			self.image_wrong_numbers.append(
-					PhotoImage(file='res/wrong_number{}.png'.format(i+1)))
+					PhotoImage(file='gui/res/wrong_number{}.png'.format(i+1)))
 
 	def key_click(self, event):
 		char = repr(event.char)[1]
@@ -94,7 +94,6 @@ class Program(Frame):
 			self.sudokutxt[self.selected[1]][self.selected[2]] = str(char)
 
 	def canvas_click(self, event):
-		print("Canvas click")
 		items = self.c.find_withtag(CURRENT)
 		if len(items) == 0:
 			return
@@ -120,7 +119,7 @@ class Program(Frame):
 		self.selected = 0
 
 	def new_sudoku(self):
-		sudokufilename = 'res/sudoku{}.txt'.format(random.randint(0, 20))
+		sudokufilename = 'gui/res/sudoku{}.txt'.format(random.randint(0, 20))
 		sudokufile = open(file = sudokufilename)
 		txt = sudokufile.readlines()[0].replace('.', '0')
 		sudokufile.close()

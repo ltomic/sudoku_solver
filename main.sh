@@ -1,6 +1,8 @@
 #!bin/bash
 
-./sudoku_to_matrix < sudoku.txt > matrix.txt
-./dlx < matrix.txt > log.txt
-./rows_to_solution < rows.txt > sol.txt
-./solution_to_solvedsudoku < sol.txt > solvedsudoku.txt
+mkdir -p tmp
+
+./bin/sudoku_to_matrix < tmp/sudoku.txt > tmp/matrix.txt
+./bin/dlx < tmp/matrix.txt > tmp/log.txt
+./bin/rows_to_solution < tmp/rows.txt > tmp/sol.txt
+./bin/solution_to_solvedsudoku < tmp/sol.txt > tmp/solvedsudoku.txt
